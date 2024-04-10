@@ -3,9 +3,12 @@ package indura.netportscan;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
+import java.net.NetworkInterface;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Enumeration;
 import java.util.List;
 
 public class Scanners {
@@ -16,6 +19,27 @@ public class Scanners {
             System.out.println("IP adress: " + address);
         } catch (UnknownHostException e) {
             System.out.println("Unable to get the local IP");
+        }
+    }
+
+    public static void showEachControllerIp() {
+        try {
+            Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
+            System.out.println();
+            System.out.println("[*] YOUR CONTROLLERS");
+            System.out.println("-------------------------------------------------------------------------");
+            for (NetworkInterface iface : Collections.list(interfaces)) {
+                if (iface.isUp() && !iface.isLoopback()) {
+                    Enumeration<InetAddress> addresses = iface.getInetAddresses();
+                    while (addresses.hasMoreElements()) {
+                        InetAddress addr = addresses.nextElement();
+                        System.out.println(iface.getDisplayName() + " " + addr.getHostAddress());
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.err.println("Error obtaining local IP addresses");
+            e.printStackTrace();
         }
     }
     
@@ -35,7 +59,7 @@ public class Scanners {
                 openPorts.add(port);
 
             } catch (IOException e) {
-                e.printStackTrace();
+                //System.out.println("Port " + port + " is closed");
             }
         }
 
