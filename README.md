@@ -3,5 +3,5 @@ InduraSC is a terminal based network scanner and web scraper. It has been develo
 
 InduraSC offers some functionalities to scan networks, hosts, show IP´s and doing web scraping, it also offers the chance to generate passwords specifying the length of the password. This is a small preview of the main menu of InduraSC.
 
-<img src="media/banner.png" width=40%>
+<img src="media/banner.png">
 
