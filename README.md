@@ -21,5 +21,11 @@ In the case of using Linux you need to give execution permissions to the bash sc
 
 Run it
 
+On Linux:
+
 - ./induraSC.sh
+
+On Windows (being in the same directory as the JAR file):
+
+- java -jar indura-1.0-SNAPSHOT.jar
 
