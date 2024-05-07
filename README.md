@@ -21,7 +21,7 @@ To install InduraSC you need to have the JDK or JRE (minimum requirement) instal
 
 Then you need to clone the repository or download the source code
 
-- git clone https://github.com/Julen-H/InduraSC
+- git clone https://github.com/UnknownArtistt/InduraSC
 
 In the case of using Linux you need to give execution permissions to the bash script
 
